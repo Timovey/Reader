@@ -5,13 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReaderView"
         mc:Ignorable="d"
-        Title="Интерфейс" MinHeight="350" MinWidth="800" Width="900" Height="500">
+        Title="Интерфейс" MinHeight="430" MinWidth="800" Width="900" Height="500">
     <Grid>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" MinHeight="200" Margin="67,74,0,0" VerticalAlignment="Top" SelectionMode="Single"
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="1.3*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBox Grid.Row="0" Grid.Column="0" x:Name="textBoxInfo" IsEnabled="False" HorizontalAlignment="Center" MinHeight="35" Width="300" Margin="20,20,20,20" TextWrapping="Wrap" VerticalAlignment="Top" />
+        <DataGrid Grid.Row="1" Grid.Column="0" x:Name="dataGrid" HorizontalAlignment="Center" MinHeight="250" Margin="20,20,20,20" VerticalAlignment="Top" SelectionMode="Single"
                   IsReadOnly="True" ColumnWidth="auto" RowHeaderWidth="0" AutoGeneratingColumn="DataGrid_AutoGeneratingColumn" Visibility="Hidden"/>
-        <Button x:Name="buttonAll" Content="Вывести все" HorizontalAlignment="Left" Height="57" Margin="564,241,0,0" VerticalAlignment="Top" Width="164" Click="buttonAll_Click"/>
-        <TextBox x:Name="textBoxInfo" IsEnabled="False" HorizontalAlignment="Left" Height="35" Margin="10,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="423"/>
-        <Button x:Name="buttomCheck" Content="Проверить подключение" HorizontalAlignment="Left" Height="54" Margin="564,20,0,0" VerticalAlignment="Top" Width="164" Click="buttomCheck_Click"/>
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Width="auto" Height="auto">
+            <Label Content="Имя" HorizontalAlignment="Left" MinHeight="35" Margin="20,20,20,20" VerticalAlignment="Top" MinWidth="30"/>
+            <TextBox x:Name="textBoxName" HorizontalAlignment="Right" MinHeight="35" Margin="20,20,20,20" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="150"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" Width="auto" Height="auto">
+            <Button x:Name="buttonFilter" Content="Вывести по Имени" HorizontalAlignment="Center" MinHeight="50" Margin="20,20,20,20" VerticalAlignment="Top" MinWidth="170" Click="buttonFilter_Click"/>
+            <Button x:Name="buttonAll" Content="Вывести все" HorizontalAlignment="Center" MinHeight="50" Margin="20,20,20,20" VerticalAlignment="Top" MinWidth="170" Click="buttonAll_Click"/>
+            <Button x:Name="buttomCheck" Content="Проверить подключение" HorizontalAlignment="Center" MinHeight="50" Margin="20,20,20,20" VerticalAlignment="Top" MinWidth="170" Click="buttomCheck_Click"/>
+        </StackPanel>
 
     </Grid>
 </Window>

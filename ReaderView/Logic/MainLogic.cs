@@ -28,9 +28,37 @@ namespace ReaderView.Logic
             string version = cmd.ExecuteScalar().ToString().Split(',')[0];
             con.Close();
             return ($"PostgreSQL version: {version}");
-            
+
         }
-       
+        public static List<PeopleViewModel> GetFilter(string name)
+        {
+            List<PeopleViewModel> list = new List<PeopleViewModel>();
+
+            var con = getConnect();
+            using (con)
+            {
+                con.Open();
+                NpgsqlCommand command = new NpgsqlCommand(
+                  $"SELECT * FROM people where name = '{name}';", con);
+
+                NpgsqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        PeopleViewModel model = new PeopleViewModel();
+                        model.Id = reader.GetInt32(0);
+                        model.Name = reader.GetString(1);
+                        model.Surname = reader.GetString(2);
+                        list.Add(model);
+                    }
+                }
+                reader.Close();
+            }
+            con.Close();
+            return list;
+        }
         public static List<PeopleViewModel> GetAll()
         {
             List<PeopleViewModel> list = new List<PeopleViewModel>();

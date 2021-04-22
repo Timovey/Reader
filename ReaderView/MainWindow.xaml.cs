@@ -31,6 +31,29 @@ namespace ReaderView
             }
         }
 
+
+        private void buttonFilter_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBoxName.Text))
+            {
+                MessageBox.Show("Заполните поле имени", "Ошибка",
+              MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            try
+            {
+                dataGrid.Visibility = Visibility.Visible;
+                var list = MainLogic.GetFilter(textBoxName.Text);
+                dataGrid.ItemsSource = list;
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK,
+                        MessageBoxImage.Error);
+            }
+        }
+
         private void buttonAll_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -40,11 +63,11 @@ namespace ReaderView
                 dataGrid.ItemsSource = list;
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK,
                         MessageBoxImage.Error);
-            }          
+            }
         }
 
         /// <summary>
