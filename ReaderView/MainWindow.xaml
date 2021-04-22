@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReaderView"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Интерфейс" MinHeight="350" MinWidth="800" Width="900" Height="500">
     <Grid>
-        
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" MinHeight="200" Margin="67,74,0,0" VerticalAlignment="Top" SelectionMode="Single"
+                  IsReadOnly="True" ColumnWidth="auto" RowHeaderWidth="0" AutoGeneratingColumn="DataGrid_AutoGeneratingColumn" Visibility="Hidden"/>
+        <Button x:Name="buttonAll" Content="Вывести все" HorizontalAlignment="Left" Height="57" Margin="564,241,0,0" VerticalAlignment="Top" Width="164" Click="buttonAll_Click"/>
+        <TextBox x:Name="textBoxInfo" IsEnabled="False" HorizontalAlignment="Left" Height="35" Margin="10,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="423"/>
+        <Button x:Name="buttomCheck" Content="Проверить подключение" HorizontalAlignment="Left" Height="54" Margin="564,20,0,0" VerticalAlignment="Top" Width="164" Click="buttomCheck_Click"/>
+
     </Grid>
 </Window>
