@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReaderView"
         mc:Ignorable="d"
-        Title="Интерфейс" MinHeight="430" MinWidth="800" Width="900" Height="500">
+        Title="Интерфейс" MinHeight="430" MinWidth="860" Width="900" Height="500">
     <Window.Resources>
         <ControlTemplate TargetType="Button" x:Key="btTemplate">
             <Border 
@@ -137,6 +137,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
             <ColumnDefinition Width="1.3*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -147,12 +148,13 @@
         <DataGrid Style="{StaticResource datagridStyle}" Grid.Row="1" Grid.Column="0" x:Name="dataGrid" HorizontalAlignment="Center" MinHeight="250" Margin="20,20,20,20" VerticalAlignment="Top" SelectionMode="Single"
                   IsReadOnly="True" ColumnWidth="auto" RowHeaderWidth="0" AutoGeneratingColumn="DataGrid_AutoGeneratingColumn" Visibility="Hidden">
         </DataGrid>
-        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Width="auto" Height="auto">
-            <Label Content="Имя" HorizontalAlignment="Left" MinHeight="35" Margin="20,20,20,20" VerticalAlignment="Top" MinWidth="30"/>
-            <TextBox x:Name="textBoxName" Style="{StaticResource tbStyle}" HorizontalAlignment="Right" MinHeight="35" Margin="20,20,20,20" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="150"/>
+        <Label Grid.Row="0" Grid.Column="1" Content="Имя" HorizontalAlignment="Left" MinHeight="35" Margin="20,20,20,20" VerticalAlignment="Top" MinWidth="40"/>
+        <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Width="auto" Height="auto">
+            
+            <TextBox x:Name="textBoxName" Style="{StaticResource tbStyle}" HorizontalAlignment="Right" MinHeight="35" Margin="20,20,20,20" TextWrapping="Wrap" VerticalAlignment="Top" MinWidth="170"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" Width="auto" Height="auto">
+        <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Width="auto" Height="auto">
             <Button x:Name="buttonFilter" Style="{StaticResource btnStyle}" Template="{StaticResource btTemplate}" Content="Вывести по Имени" HorizontalAlignment="Center" MinHeight="50" Margin="20,20,20,20" VerticalAlignment="Top" MinWidth="170" Click="buttonFilter_Click"/>
             <Button x:Name="buttonAll" Style="{StaticResource btnStyle}" Template="{StaticResource btTemplate}" Content="Вывести все" HorizontalAlignment="Center" MinHeight="50" Margin="20,20,20,20" VerticalAlignment="Top" MinWidth="170" Click="buttonAll_Click"/>
             <Button x:Name="buttomCheck" Style="{StaticResource btnStyle}" Template="{StaticResource btTemplate}" Content="Проверить подключение" HorizontalAlignment="Center" MinHeight="50" Margin="20,20,20,20" VerticalAlignment="Top" MinWidth="170" Click="buttomCheck_Click"/>
