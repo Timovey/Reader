@@ -15,7 +15,7 @@ namespace ReaderView.Logic
         {
             // Connect to a PostgreSQL database
             NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;User Id=postgres; " +
-               "Password=postgres;Database=readerdb;");
+               "Password=1234;Database=readerdb;");
             return conn;
         }
 
